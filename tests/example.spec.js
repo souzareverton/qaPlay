@@ -73,25 +73,6 @@ test('Login com sucesso1', async ({ page }) => {
   await expect(page.locator('h2.swal2-title')).toHaveText('Logout Sucessfull');
 });
 
-test('Login com sucesso2', async ({ page }) => {
-  
-  await page.getByRole('link', { name: 'Login' }).click();
-  // await page.screenshot({path: 'screenshot/screenshot.png'});
-  await page.locator('#user').click();
-  await page.locator('#user').fill('teste@gmail.com');
-  await page.locator('#user').press('Tab');
-  await page.locator('#password').fill('123456');
-  // await page.locator('#password').screenshot({path: 'screenshot/elementoSenha.png'});
-  await page.getByRole('button', { name: 'login' }).click();
-  await expect(page.locator('h2.swal2-title')).toBeVisible();
-  await expect(page.locator('h2.swal2-title')).toHaveText('Login realizado');
-  await expect(page.locator('div.swal2-html-container')).toBeVisible();
-  await expect(page.locator('div.swal2-html-container')).toHaveText('Olá, teste@gmail.com');
-  await page.getByRole('button', {name: 'OK'}).click();
-  await page.locator('.after_login').hover();
-  await page.getByRole('link', {name: 'logout'}).click();
-  await expect(page.locator('h2.swal2-title')).toHaveText('Logout Sucessfull');
-});
 // test('Geolocation', async ({ page, context }) => {
   // await context.setGeolocation({ longitude: 41.890221, latitude: 12.492348 });
   // await page.goto('https://www.google.com/maps');
